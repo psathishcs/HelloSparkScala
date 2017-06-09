@@ -1,0 +1,41 @@
+# .gitignore
+ 
+# Java class files
+*.class
+
+# Executable files
+*.exe
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+#gradle
+gradlew
+gradlew.bat
+
+# temp sub-directory (ended with a directory separator)
+bin/
+build/
+.gradle/
+gradle/
+.settings/
+target/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
