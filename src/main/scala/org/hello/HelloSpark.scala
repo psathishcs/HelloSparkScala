@@ -6,7 +6,7 @@ import org.apache.spark.SparkConf
 
 object HelloSpark {
   def main(args: Array[String]){
-    val conf = new SparkConf().setAppName("HelloSparkScala").setMaster("spark://hadoop.master.com:7077")
+    val conf = new SparkConf().setAppName("HelloSparkScala")
     val sc = new SparkContext(conf)
     
     val nums = sc.parallelize(List(1,2,3,5,6,7,8,20,235,366,3))
