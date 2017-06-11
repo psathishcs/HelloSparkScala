@@ -7,6 +7,9 @@ import org.apache.hadoop.fs.FileSystem
 import org.apache.hadoop.fs.Path
 
 object FilterSparkRDD {
+  def filterWord(line:String) :Boolean = {
+      line.contains(" news ")
+  }
   def main(args: Array[String]){
     val conf = new SparkConf().setAppName("FilterSparkRDD - Scala")
     val spark = new SparkContext(conf)
@@ -27,5 +30,11 @@ object FilterSparkRDD {
       fs.delete(outputPath, true)
     }
     newsLines.saveAsTextFile("hdfs://hadoop.master.com:9000/user/psathishcs/Output/Books/Ulysses_FilterNews_Scala")
+    val newsWordLines  = text_file.filter { line => filterWord(line)}
+    val outputWordPath = new Path("hdfs://hadoop.master.com:9000/user/psathishcs/Output/Books/Ulysses_FilterNewsWord_Scala");
+    if (fs.exists(outputWordPath)){
+      fs.delete(outputWordPath, true)
+    }
+    newsWordLines.saveAsTextFile("hdfs://hadoop.master.com:9000/user/psathishcs/Output/Books/Ulysses_FilterNewsWord_Scala")
    }
 }
