@@ -26,7 +26,7 @@ object HelloSparkSQL {
     foundedYearSQL.show()
     println("Count of SELECT * FROM Companies WHERE  founded_year >= 2005 ------> " +  foundedYearSQL.count())
     
-    val foundedYearListSQL = spark.sql("SELECT * FROM Companies WHERE  founded_year IN (SELECT founded_year FROM Companie)")
+    val foundedYearListSQL = spark.sql("SELECT * FROM Companies WHERE  founded_year IN (SELECT founded_year FROM Companie WHERE founded_year != NULL)")
     foundedYearListSQL.show()
     println("Count of SELECT * FROM Companies WHERE  founded_year IN (SELECT founded_year FROM Companie) ------> " +  foundedYearListSQL.count())
      
