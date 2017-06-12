@@ -24,7 +24,11 @@ object HelloSparkSQL {
     dfs.createOrReplaceTempView("Companies")
     val foundedYearSQL = spark.sql("SELECT * FROM Companies WHERE  founded_year >= 2005")
     foundedYearSQL.show()
-    println("Count of ELECT * FROM Companies WHERE  founded_year >= 2005 ------> " +  foundedYearSQL.count())
+    println("Count of SELECT * FROM Companies WHERE  founded_year >= 2005 ------> " +  foundedYearSQL.count())
+    
+    val foundedYearListSQL = spark.sql("SELECT * FROM Companies WHERE  founded_year IN (SELECT founded_year FROM Companie)")
+    foundedYearListSQL.show()
+    println("Count of SELECT * FROM Companies WHERE  founded_year IN (SELECT founded_year FROM Companie) ------> " +  foundedYearListSQL.count())
      
   }
 }
