@@ -19,12 +19,12 @@ object HelloSparkSQL {
     
     val dfs = spark.read.json("hdfs://hadoop.master.com:9000/user/psathishcs/Input/Json/Companies.json")
     dfs.filter($"founded_year" > 2010).show()
+    println("Count of $founded_year > 2010 ------> " +  dfs.filter($"founded_year" > 2010).count())
     df.createOrReplaceTempView("Companie")
     dfs.createOrReplaceTempView("Companies")
     val foundedYearSQL = spark.sql("SELECT * FROM Companies WHERE  founded_year >= 2005")
     foundedYearSQL.show()
-    
-
+    println("Count of ELECT * FROM Companies WHERE  founded_year >= 2005 ------> " +  foundedYearSQL.count())
      
   }
 }
