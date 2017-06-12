@@ -21,7 +21,7 @@ object HelloSparkSQL {
     dfs.filter($"founded_year" > 2010).show()
     df.createOrReplaceTempView("Companie")
     dfs.createOrReplaceTempView("Companies")
-    val foundedYearSQL = spark.sql("SELECT * FROM Companies WHERE  founded_year >= 2009")
+    val foundedYearSQL = spark.sql("SELECT * FROM Companies WHERE  founded_year >= 2005")
     foundedYearSQL.show()
     
 
