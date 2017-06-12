@@ -18,7 +18,7 @@ object HelloSparkSQL {
     df.select($"name", $"founded_year" +1).show()
     
     val dfs = spark.read.json("hdfs://hadoop.master.com:9000/user/psathishcs/Input/Json/Companies.json")
-    dfs.select($"name", $"founded_year" > 2010).show()
+    dfs.filter($"founded_year" > 2010).show()
 
      
   }
