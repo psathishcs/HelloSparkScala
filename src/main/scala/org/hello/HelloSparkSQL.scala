@@ -11,7 +11,10 @@ object HelloSparkSQL {
     .getOrCreate()
     
     val df = spark.read.json("hdfs://hadoop.master.com:9000/user/psathishcs/Input/Json/Companie.json")
+    df.printSchema()
     df.show()
+    df.select("name").show()
+    df.select("name", "founded_year" +1).show()
     
   }
 }
