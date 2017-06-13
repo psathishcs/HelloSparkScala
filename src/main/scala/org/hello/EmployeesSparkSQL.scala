@@ -20,7 +20,9 @@ object EmployeesSparkSQL {
     .getOrCreate()
     import spark.implicits._
     
-    val employeesDF = spark.read.csv("hdfs://hadoop.master.com:9000/user/psathishcs/Input/csv/Employees.csv").as[Employees]
+    val employeesDF = spark.read
+          .option("header", "true")
+          .csv("hdfs://hadoop.master.com:9000/user/psathishcs/Input/csv/Employees.csv").as[Employees]
     employeesDF.printSchema()
     employeesDF.show()
   
