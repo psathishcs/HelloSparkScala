@@ -7,7 +7,7 @@ case class Employees(
   birth_date: String,
   first_name: String,
   last_name: String,
-  gender: Char,
+  gender: String,
   hire_date: String
 )
 
