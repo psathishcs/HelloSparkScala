@@ -3,7 +3,7 @@ package org.hello
 import org.apache.spark.sql.SparkSession
 
 case class Employees( 
-  emp_no: Long,
+  emp_no: String,
   birth_date: String,
   first_name: String,
   last_name: String,
@@ -24,7 +24,7 @@ object EmployeesSparkSQL {
           .option("header", "true")
           .csv("hdfs://hadoop.master.com:9000/user/psathishcs/Input/csv/Employees.csv").as[Employees]
     employeesDF.printSchema()
-    employeesDF.show()
+   // employeesDF.show()
   
     
   }
