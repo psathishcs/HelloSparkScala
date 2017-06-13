@@ -3,7 +3,7 @@ package org.hello
 import org.apache.spark.sql.SparkSession
 
 case class Employees( 
-  emp_no: Int,
+  emp_no: String,
   birth_date: String,
   first_name: String,
   last_name: String,
