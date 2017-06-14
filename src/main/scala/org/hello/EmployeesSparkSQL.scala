@@ -25,8 +25,5 @@ object EmployeesSparkSQL {
           .option("inferSchema", "true")
           .csv("hdfs://hadoop.master.com:9000/user/psathishcs/Input/csv/Employees.csv").as[Employees]
     employeesDF.printSchema()
-   // employeesDF.show()
-  
-    
   }
 }
