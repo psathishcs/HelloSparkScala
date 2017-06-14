@@ -4,11 +4,11 @@ import org.apache.spark.sql.SparkSession
 import com.github.nscala_time.time.Imports._
 case class Employees( 
   emp_no: Long,
-  birth_date: DateTime,
+  birth_date: String,
   first_name: String,
   last_name: String,
   gender: String,
-  hire_date: DateTime
+  hire_date: String
 )
 
 object EmployeesSparkSQL {
