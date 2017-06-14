@@ -1,14 +1,14 @@
 package org.hello
 
 import org.apache.spark.sql.SparkSession
-
+import com.github.nscala_time.time.Imports._
 case class Employees( 
   emp_no: Long,
-  birth_date: String,
+  birth_date: DateTime,
   first_name: String,
   last_name: String,
   gender: String,
-  hire_date: String
+  hire_date: DateTime
 )
 
 object EmployeesSparkSQL {
