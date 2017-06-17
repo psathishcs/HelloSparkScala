@@ -13,6 +13,8 @@ object HelloSparkScream {
     val pairs = words.map(word => (word, 1))
     val wordCounts = pairs.reduceByKey(_+_)
     wordCounts.print()
+    ssc.start()
+    ssc.awaitTermination()
 
   }
 }
