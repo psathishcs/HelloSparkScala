@@ -149,6 +149,7 @@
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.parquet\parquet-hadoop\jars\parquet-hadoop-1.8.1.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.parquet\parquet-format\jars\parquet-format-2.3.0-incubating.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.parquet\parquet-jackson\jars\parquet-jackson-1.8.1.jar"/>
+  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.spark\spark-streaming_2.11\jars\spark-streaming_2.11-2.1.0.jar"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
   <classpathentry kind="output" path="bin"/>
 </classpath>
