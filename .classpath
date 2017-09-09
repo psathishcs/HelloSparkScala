@@ -4,6 +4,36 @@
   <classpathentry kind="src" path="src\test\scala"/>
   <classpathentry kind="src" path="src\test\resources"/>
   <classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
+  <classpathentry sourcepath="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.spark\spark-streaming-kafka_2.11\srcs\spark-streaming-kafka_2.11-1.6.1-sources.jar" kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.spark\spark-streaming-kafka_2.11\jars\spark-streaming-kafka_2.11-1.6.1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.spark\spark-streaming-kafka_2.11\docs\spark-streaming-kafka_2.11-1.6.1-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.kafka\kafka_2.11\srcs\kafka_2.11-0.8.2.1-sources.jar" kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.kafka\kafka_2.11\jars\kafka_2.11-0.8.2.1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.kafka\kafka_2.11\docs\kafka_2.11-0.8.2.1-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="C:\Users\SathishParthasarathy\.ivy2\cache\com.yammer.metrics\metrics-core\srcs\metrics-core-2.2.0-sources.jar" kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\com.yammer.metrics\metrics-core\jars\metrics-core-2.2.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:C:\Users\SathishParthasarathy\.ivy2\cache\com.yammer.metrics\metrics-core\docs\metrics-core-2.2.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="C:\Users\SathishParthasarathy\.ivy2\cache\com.101tec\zkclient\srcs\zkclient-0.3-sources.jar" kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\com.101tec\zkclient\jars\zkclient-0.3.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:C:\Users\SathishParthasarathy\.ivy2\cache\com.101tec\zkclient\docs\zkclient-0.3-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.kafka\kafka-clients\srcs\kafka-clients-0.8.2.1-sources.jar" kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.kafka\kafka-clients\jars\kafka-clients-0.8.2.1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.kafka\kafka-clients\docs\kafka-clients-0.8.2.1-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="C:\Users\SathishParthasarathy\.ivy2\cache\org.spark-project.spark\unused\srcs\unused-1.0.0-sources.jar" kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.spark-project.spark\unused\jars\unused-1.0.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:C:\Users\SathishParthasarathy\.ivy2\cache\org.spark-project.spark\unused\docs\unused-1.0.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
   <classpathentry sourcepath="C:\Users\SathishParthasarathy\.ivy2\cache\com.github.nscala-time\nscala-time_2.11\srcs\nscala-time_2.11-2.16.0-sources.jar" kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\com.github.nscala-time\nscala-time_2.11\jars\nscala-time_2.11-2.16.0.jar">
     <attributes>
       <attribute name="javadoc_location" value="jar:file:C:\Users\SathishParthasarathy\.ivy2\cache\com.github.nscala-time\nscala-time_2.11\docs\nscala-time_2.11-2.16.0-javadoc.jar!/"/>
@@ -19,16 +49,17 @@
       <attribute name="javadoc_location" value="jar:file:C:\Users\SathishParthasarathy\.ivy2\cache\org.joda\joda-convert\docs\joda-convert-1.2-javadoc.jar!/"/>
     </attributes>
   </classpathentry>
+  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\com.databricks\spark-avro_2.11\jars\spark-avro_2.11-3.2.0.jar"/>
+  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.codehaus.jackson\jackson-core-asl\jars\jackson-core-asl-1.9.13.jar"/>
+  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.codehaus.jackson\jackson-mapper-asl\jars\jackson-mapper-asl-1.9.13.jar"/>
+  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.commons\commons-compress\jars\commons-compress-1.4.1.jar"/>
+  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.tukaani\xz\jars\xz-1.0.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.spark\spark-core_2.11\jars\spark-core_2.11-2.1.0.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.avro\avro-mapred\jars\avro-mapred-1.7.7-hadoop2.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.avro\avro-ipc\jars\avro-ipc-1.7.7-tests.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.avro\avro-ipc\jars\avro-ipc-1.7.7.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.avro\avro\jars\avro-1.7.7.jar"/>
-  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.codehaus.jackson\jackson-core-asl\jars\jackson-core-asl-1.9.13.jar"/>
-  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.codehaus.jackson\jackson-mapper-asl\jars\jackson-mapper-asl-1.9.13.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.xerial.snappy\snappy-java\bundles\snappy-java-1.1.2.6.jar"/>
-  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.commons\commons-compress\jars\commons-compress-1.4.1.jar"/>
-  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.tukaani\xz\jars\xz-1.0.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.slf4j\slf4j-api\jars\slf4j-api-1.7.16.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\com.twitter\chill_2.11\jars\chill_2.11-0.8.0.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\com.twitter\chill-java\jars\chill-java-0.8.0.jar"/>
@@ -74,7 +105,6 @@
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.spark\spark-launcher_2.11\jars\spark-launcher_2.11-2.1.0.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.spark\spark-tags_2.11\jars\spark-tags_2.11-2.1.0.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.scalatest\scalatest_2.11\bundles\scalatest_2.11-2.2.6.jar"/>
-  <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.spark-project.spark\unused\jars\unused-1.0.0.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.spark\spark-network-common_2.11\jars\spark-network-common_2.11-2.1.0.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\io.netty\netty-all\jars\netty-all-4.0.42.Final.jar"/>
   <classpathentry kind="lib" path="C:\Users\SathishParthasarathy\.ivy2\cache\org.apache.commons\commons-lang3\jars\commons-lang3-3.5.jar"/>
