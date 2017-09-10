@@ -15,5 +15,9 @@ object Problem1 {
     println("orderItemsDF first -> " + orderItemsDF.first());
     ordersDF.printSchema();
     orderItemsDF.printSchema()
+    var joinedOrderDF = ordersDF.join(orderItemsDF, ordersDF("order_id") === orderItemsDF("order_item_order_id"));
+    println("joinedOrderDF Count -> " + joinedOrderDF.count());
+    println("joinedOrderDF first -> " + joinedOrderDF.first());
+    joinedOrderDF.printSchema();
   }
 }
