@@ -6,12 +6,14 @@ object Problem1 {
   def main(args : Array[String]) {
     val conf = new SparkConf().setAppName("FilterSparkRDD - Scala")
     val spark = new SparkContext(conf)
-    val sqlContect = new SQLContext(spark)
-    var ordersDF = sqlContect.read.avro("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/orders"); 
-    var orderItemsDF = sqlContect.read.avro("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/order_items");
+    val sqlContext = new SQLContext(spark)
+    var ordersDF = sqlContext.read.avro("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/orders"); 
+    var orderItemsDF = sqlContext.read.avro("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/order_items");
     println("orderDF Count -> " + ordersDF.count());
     println("orderItemsDF Count -> " + orderItemsDF.count());
     println("orderDF first -> " + ordersDF.first());
     println("orderItemsDF first -> " + orderItemsDF.first());
+    ordersDF.printSchema();
+    orderItemsDF.printSchema()
   }
 }
