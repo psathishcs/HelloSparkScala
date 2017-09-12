@@ -45,6 +45,6 @@ object Problem1 {
     
     //Multiple Groupe by 
     joinedOrderDF.groupBy(to_date(from_unixtime((col("order_date")/1000))), col("order_status")).count().show();
-        
+    joinedOrderDF.agg(round(sum("order_item_subtotal"),2).alias("total_amount"),countDistinct("order_id").alias("total_order"));    
   }
 }
