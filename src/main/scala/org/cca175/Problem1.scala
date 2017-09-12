@@ -41,6 +41,7 @@ object Problem1 {
     joinedOrderDF.groupBy("order_status").count().show();
     //formated Date
     joinedOrderDF.select(to_date(from_unixtime((col("order_date")/1000)))).alias("Order_Formatted_Date").show();
+    joinedOrderDF.groupBy(to_date(from_unixtime((col("order_date")/1000)))).count().show();
         
   }
 }
