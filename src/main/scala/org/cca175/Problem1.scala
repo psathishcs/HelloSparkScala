@@ -38,6 +38,7 @@ object Problem1 {
     joinedOrderDF.select("order_status").show();
     println("Filter........................>");
     joinedOrderDF.filter(joinedOrderDF("order_customer_id") === 2755).show();
+    joinedOrderDF.groupBy("order_customer_id").count().show();
         
   }
 }
