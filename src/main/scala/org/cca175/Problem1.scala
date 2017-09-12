@@ -39,6 +39,8 @@ object Problem1 {
     println("Filter........................>");
     joinedOrderDF.filter(joinedOrderDF("order_customer_id") === 2755).show();
     joinedOrderDF.groupBy("order_status").count().show();
+    //formated Date
+    joinedOrderDF.select(to_date(from_unixtime((col("order_date")/1000)))).alias("Order_Formatted_Date").show();
         
   }
 }
