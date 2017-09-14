@@ -50,7 +50,7 @@ object Problem1 {
           .agg(round(sum("order_item_subtotal"),2).alias("total_amount"),countDistinct("order_id").alias("total_order"))
           .orderBy(col("order_formatted_date").desc,col("order_status"), col("total_amount").desc,col("total_order")).show();
     joinedOrderDF.createOrReplaceTempView("order_joined");
-    sqlContext.sql("SELECT to_data(from_unixtime(case(order_date/1000 as bigint))) as order_formatted_data, order_status, case(sum(order_item_subtotal)as DECIMAL(10,2) from order_joined");
+    sqlContext.sql("SELECT to_data(from_unixtime(case(order_date)/1000 as bigint))) as order_formatted_data, order_status, case(sum(order_item_subtotal)as DECIMAL(10,2) from order_joined");
 
   }
 }
