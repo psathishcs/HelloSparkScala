@@ -51,8 +51,9 @@ object Problem1 {
           .orderBy(col("order_formatted_date").desc,col("order_status"), col("total_amount").desc,col("total_order")).show();
     joinedOrderDF.createOrReplaceTempView("order_joined");
     
-    var sqlResult = sqlContext.sql("select to_date(from_unixtime(cast(order_date/1000 as bigint))) as order_formatted_date, order_status, cast(sum(order_item_subtotal) as DECIMAL (10,2)) as total_amount, count(distinct(order_id)) as total_orders from order_joined group by to_date(from_unixtime(cast(order_date/1000 as bigint))), order_status order by order_formatted_date desc,order_status,total_amount desc, total_orders");
+    //var sqlResult = sqlContext.sql("select to_date(from_unixtime(cast(order_date/1000 as bigint))) as order_formatted_date, order_status, cast(sum(order_item_subtotal) as DECIMAL (10,2)) as total_amount, count(distinct(order_id)) as total_orders from order_joined group by to_date(from_unixtime(cast(order_date/1000 as bigint))), order_status order by order_formatted_date desc,order_status,total_amount desc, total_orders");
     sqlResult.show();
-    sqlContext.sql("SELECT to_data(from_unixtime(case(order_date)/1000 as bigint))) as order_formatted_data, order_status, case(sum(order_item_subtotal)as DECIMAL(10,2) from order_joined");
+    var sqlResult = sqlContext.sql("SELECT to_date(from_unixtime(order_date/1000))) as order_formatted_data from order_joined");
+    sqlResult.show();
   }
 }
