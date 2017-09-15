@@ -57,5 +57,22 @@ object Problem1 {
     var sqlResult = sqlContext.sql("SELECT to_date(from_unixtime(cast(order_date/1000 as bigint))) as order_formatted_date, order_status, cast(sum(order_item_subtotal) as DECIMAL(10, 2)) AS total_amount, " +
       "count(distinct(order_id)) as total_orders from order_joined group by to_date(from_unixtime(cast(order_date/1000 as bigint))), order_status order by order_formatted_date desc, order_status, total_amount desc, total_orders");
     sqlResult.show();
+    
+    sqlContext.setConf("spark.sql.parquet.compression.codec", "gzip");
+    joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-gzip")
+    sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-gzip")
+    
+    sqlContext.setConf("spark.sql.parquet.compression.codec", "snappy");
+    joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-snappy")
+    sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-snappy")
+    
+    sqlContext.setConf("spark.sql.parquet.compression.codec", "gzip");
+    joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-gzip")
+    sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-gzip")
+    
+    
+    sqlContext.setConf("spark.sql.parquet.compression.codec", "");
+    joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-csv")
+    sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-csv")
   }
 }
