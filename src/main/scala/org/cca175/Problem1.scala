@@ -19,12 +19,20 @@ import org.apache.hadoop.conf.Configuration;
  |-- order_item_product_price: float (nullable = true)
  * 
  * 
+ * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4b-snappy/*
+ * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4a-snappy/*
+ * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4a-gzip/*
+ * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4b-gzip/*
+ * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4a-cvs/*
+ * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4b-cvs/*
+ */
  * 
  * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4b-snappy
  * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4a-snappy
  * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4a-gzip
  * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4b-gzip
- * 
+ * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4a-cvs
+ * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4b-cvs
  * 
  */
 object Problem1 {
@@ -83,9 +91,11 @@ object Problem1 {
       joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-csv")
       sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-csv")
     }else {
-      println("/user/hadoop/cca175/problem1/result4a-gzip,\n /user/hadoop/cca175/problem1/result4b-gzip, \n " + 
-              "/user/hadoop/cca175/problem1/result4a-snappy, \n /user/hadoop/cca175/problem1/result4b-snappy " +
-              "/user/hadoop/cca175/problem1/result4a-csv, \n /user/hadoop/cca175/problem1/result4b-csv ");
+      println("Error : Deleted the Fellowing Folders\n-----------------------------------------------\n" + 
+              "/user/hadoop/cca175/problem1/result4a-gzip,\n /user/hadoop/cca175/problem1/result4b-gzip, \n " + 
+              "/user/hadoop/cca175/problem1/result4a-snappy, \n /user/hadoop/cca175/problem1/result4b-snappy \n" +
+              "/user/hadoop/cca175/problem1/result4a-csv, \n /user/hadoop/cca175/problem1/result4b-csv \n" + 
+              " ----------------------------------------------- ");
     }
   }
   
