@@ -18,6 +18,14 @@ import org.apache.hadoop.conf.Configuration;
  |-- order_item_subtotal: float (nullable = true)
  |-- order_item_product_price: float (nullable = true)
  * 
+ * 
+ * 
+ * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4b-snappy
+ * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4a-snappy
+ * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4a-gzip
+ * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4b-gzip
+ * 
+ * 
  */
 object Problem1 {
   def main(args : Array[String]) {
@@ -61,46 +69,23 @@ object Problem1 {
     var sqlResult = sqlContext.sql("SELECT to_date(from_unixtime(cast(order_date/1000 as bigint))) as order_formatted_date, order_status, cast(sum(order_item_subtotal) as DECIMAL(10, 2)) AS total_amount, " +
       "count(distinct(order_id)) as total_orders from order_joined group by to_date(from_unixtime(cast(order_date/1000 as bigint))), order_status order by order_formatted_date desc, order_status, total_amount desc, total_orders");
     sqlResult.show();
+    if (!dirExists("/user/hadoop/cca175/problem1/result4a-gzip")){
 
-    sqlContext.setConf("spark.sql.parquet.compression.codec", "gzip");    
-    if (dirExists("/user/hadoop/cca175/problem1/result4a-gzip")){
+      sqlContext.setConf("spark.sql.parquet.compression.codec", "gzip");    
       joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-gzip")
       sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-gzip")
-    } else {
-      println("/user/hadoop/cca175/problem1/result4a-gzip is exits please deleted the folder")
-    }
     
-    if (dirExists("/user/hadoop/cca175/problem1/result4b-gzip")){
-      sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-gzip")
-    } else {
-      println("/user/hadoop/cca175/problem1/result4b-gzip is exits please deleted the folder")
-    }
-    
-    sqlContext.setConf("spark.sql.parquet.compression.codec", "snappy");    
-    if (dirExists("/user/hadoop/cca175/problem1/result4a-snappy")){
+      sqlContext.setConf("spark.sql.parquet.compression.codec", "snappy");    
       joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-snappy")
-    } else {
-      println("/user/hadoop/cca175/problem1/result4a-snappy is exits please deleted the folder")
-    }
-    
-    if (dirExists("/user/hadoop/cca175/problem1/result4b-snappy")){
       sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-snappy")
-    } else {
-      println("/user/hadoop/cca175/problem1/result4b-snappy is exits please deleted the folder")
-    }
-    
-    sqlContext.setConf("spark.sql.parquet.compression.codec", "");
-    if (dirExists("/user/hadoop/cca175/problem1/result4a-csv")){
+
+      sqlContext.setConf("spark.sql.parquet.compression.codec", "uncompressed");
       joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-csv")
-    } else {
-      println("/user/hadoop/cca175/problem1/result4a-csv is exits please deleted the folder")
-    }
-    
-    
-    if (dirExists("/user/hadoop/cca175/problem1/result4b-csv")){
-      sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-csv")  
-    } else {
-      println("/user/hadoop/cca175/problem1/result4b-csv is exits please deleted the folder")
+      sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-csv")
+    }else {
+      println("/user/hadoop/cca175/problem1/result4a-gzip,\n /user/hadoop/cca175/problem1/result4b-gzip, \n " + 
+              "/user/hadoop/cca175/problem1/result4a-snappy, \n /user/hadoop/cca175/problem1/result4b-snappy " +
+              "/user/hadoop/cca175/problem1/result4a-csv, \n /user/hadoop/cca175/problem1/result4b-csv ");
     }
   }
   
