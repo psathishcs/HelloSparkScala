@@ -6,6 +6,8 @@ import org.apache.spark.sql.functions._;
 import org.apache.hadoop.conf.Configuration;
 
 /**
+ * 
+
  * root
  |-- order_id: integer (nullable = true)
  |-- order_date: long (nullable = true)
@@ -19,23 +21,24 @@ import org.apache.hadoop.conf.Configuration;
  |-- order_item_product_price: float (nullable = true)
  * 
  * 
- * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4b-snappy/*
- * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4a-snappy/*
- * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4a-gzip/*
- * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4b-gzip/*
- * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4a-cvs/*
- * hdfs dfs -ls -r /user/hadoop/cca175/problem1/result4b-cvs/*
  */
- * 
- * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4b-snappy
- * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4a-snappy
- * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4a-gzip
- * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4b-gzip
- * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4a-cvs
- * hdfs dfs -rmdir /user/hadoop/cca175/problem1/result4b-cvs
- * 
- */
-object Problem1 {
+//  hdfs dfs -rm -r /user/hadoop/cca175/problem1/rs/*
+//  hdfs dfs -rm -r /user/hadoop/cca175/problem1/rs/result4b-snappy/*
+//  hdfs dfs -rm -r /user/hadoop/cca175/problem1/rs/result4a-snappy/*
+//  hdfs dfs -rm -r /user/hadoop/cca175/problem1/rs/result4a-gzip/*
+//  hdfs dfs -rm -r /user/hadoop/cca175/problem1/rs/result4b-gzip/*
+//  hdfs dfs -rm -r /user/hadoop/cca175/problem1/rs/result4a-cvs/*
+//  hdfs dfs -rm -r /user/hadoop/cca175/problem1/rs/result4b-cvs/*
+//
+//  
+//  hdfs dfs -rmdir /user/hadoop/cca175/problem1/rs/result4b-snappy
+//  hdfs dfs -rmdir /user/hadoop/cca175/problem1/rs/result4a-snappy
+//  hdfs dfs -rmdir /user/hadoop/cca175/problem1/rs/result4a-gzip
+//  hdfs dfs -rmdir /user/hadoop/cca175/problem1/rs/result4b-gzip
+//  hdfs dfs -rmdir /user/hadoop/cca175/problem1/rs/result4a-cvs
+//  hdfs dfs -rmdir /user/hadoop/cca175/problem1/rs/result4b-cvs
+
+ object Problem1 {
   def main(args : Array[String]) {
     val conf = new SparkConf().setAppName("FilterSparkRDD - Scala")
     val spark = new SparkContext(conf)
@@ -80,21 +83,21 @@ object Problem1 {
     if (!dirExists("/user/hadoop/cca175/problem1/result4a-gzip")){
 
       sqlContext.setConf("spark.sql.parquet.compression.codec", "gzip");    
-      joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-gzip")
-      sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-gzip")
+      joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/rs/result4a-gzip")
+      sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/rs/result4b-gzip")
     
       sqlContext.setConf("spark.sql.parquet.compression.codec", "snappy");    
-      joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-snappy")
-      sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-snappy")
+      joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/rs/result4a-snappy")
+      sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/rs/result4b-snappy")
 
       sqlContext.setConf("spark.sql.parquet.compression.codec", "uncompressed");
-      joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4a-csv")
-      sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/result4b-csv")
+      joinedOrderDF.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/rs/result4a-csv")
+      sqlResult.write.parquet("hdfs://hadoop.master.com:9000/user/hadoop/cca175/problem1/rs/result4b-csv")
     }else {
       println("Error : Deleted the Fellowing Folders\n-----------------------------------------------\n" + 
-              "/user/hadoop/cca175/problem1/result4a-gzip,\n /user/hadoop/cca175/problem1/result4b-gzip, \n " + 
-              "/user/hadoop/cca175/problem1/result4a-snappy, \n /user/hadoop/cca175/problem1/result4b-snappy \n" +
-              "/user/hadoop/cca175/problem1/result4a-csv, \n /user/hadoop/cca175/problem1/result4b-csv \n" + 
+              "/user/hadoop/cca175/problem1/rs/result4a-gzip,\n /user/hadoop/cca175/problem1/rs/result4b-gzip, \n " + 
+              "/user/hadoop/cca175/problem1/rs/result4a-snappy, \n /user/hadoop/cca175/problem1/rs/result4b-snappy \n" +
+              "/user/hadoop/cca175/problem1/rs/result4a-csv, \n /user/hadoop/cca175/problem1/rs/result4b-csv \n" + 
               " ----------------------------------------------- ");
     }
   }
